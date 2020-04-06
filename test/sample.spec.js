@@ -37,7 +37,6 @@ describe('delete todo', function () {
     });
 
    it('should delete todo correctly',async function(){
-    //  let todoList = await page.waitFor('#todo-list');
       let length = await page.$$eval('#todo-list li',list=> list.length);
       console.log(length)
       await page.evaluate(()=> {
