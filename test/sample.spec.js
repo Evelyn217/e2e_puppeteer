@@ -25,6 +25,25 @@ describe('add todo', function () {
   });
 
 
+describe('get todo', function () {
+    let page;
+
+    before (async function () {
+      page = await browser.newPage();
+      await page.goto('http://127.0.0.1:7001/');
+    });
+    after (async function () {
+      await page.close();
+    });
+
+    it('should get todo correctly',async function(){
+       let list = await page.$$('#todo-list li');
+       expect(list).to.have.property('length');
+     })
+    
+  });
+
+
 describe('delete todo', function () {
     let page;
 
@@ -49,21 +68,3 @@ describe('delete todo', function () {
     
   });
 
-
-  describe('get todo', function () {
-    let page;
-
-    before (async function () {
-      page = await browser.newPage();
-      await page.goto('http://127.0.0.1:7001/');
-    });
-    after (async function () {
-      await page.close();
-    });
-
-    it('should get todo correctly',async function(){
-       let list = await page.$$('#todo-list li');
-       expect(list).to.have.property('length');
-     })
-    
-  });
