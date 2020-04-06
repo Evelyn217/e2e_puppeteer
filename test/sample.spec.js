@@ -63,8 +63,7 @@ describe('delete todo', function () {
     });
 
     it('should get todo correctly',async function(){
-      //  let todoList = await page.waitFor('#todo-list');
-      let list = await page.$$('#todo-list li');
+       let list = await page.$$('#todo-list li');
        expect(list).to.have.property('length');
      })
     
